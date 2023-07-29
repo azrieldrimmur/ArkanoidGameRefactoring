@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 // Base from: http://www.edu4java.com/en/game/game1.html
 @SuppressWarnings("serial")
-public class ArkanoidGameStart extends JPanel {
+public class ArkanoidGameStart extends JPanel { //создаем класс и наследуемся от JPanel
 	public static final int WIDTH = 410;
 	public static final int HEIGHT = 450;
 	public static int default_speed = 6;
@@ -20,13 +20,13 @@ public class ArkanoidGameStart extends JPanel {
 	public static long time_counter = 0;
 	public static int oldballxa = 0;
 	public static int oldballya = 0;
-	
+
 	public ArkanoidGameStart() {
 		setLayout(null);
 		setVisible(true);
 		setBackground(Color.BLACK);
 	}
-	
+
 	Ball ball = new Ball(this);
 	Bar bar = new Bar(this);
 	Bricks brick = new Bricks(this);
@@ -50,12 +50,12 @@ public class ArkanoidGameStart extends JPanel {
 		rewards.paint(g2d);
 		text.paint(g2d);
 	}
-	
+
 	public void gameOver() {
 		JOptionPane.showMessageDialog(this, "Game Over", "Game Over", JOptionPane.YES_NO_OPTION);
 		System.exit(ABORT);
 	}
-	
+
 	public static void startGame(ArkanoidGameStart game) {
 		if (start_game) {
 			// Select a random direction for the ball at game start
@@ -70,7 +70,7 @@ public class ArkanoidGameStart extends JPanel {
 			start_game = false;
 			game.text.start_label.setText("");
 			game.text.level_label.setText("LEVEL "+Levels.current_level);
-		} 
+		}
 		else {
 			if (!paused) {
 				// Pause the game
@@ -92,7 +92,7 @@ public class ArkanoidGameStart extends JPanel {
 			}
 		}
 	}
-	
+
 	public static void main(String[] args) throws InterruptedException {
 		JFrame frame = new JFrame("Arkanoid");
 		ArkanoidGameStart game = new ArkanoidGameStart();
@@ -102,7 +102,7 @@ public class ArkanoidGameStart extends JPanel {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable( false );
-		
+
 		while (true) {
 			System.out.println(paused);
 			if (!paused && !start_game) {
